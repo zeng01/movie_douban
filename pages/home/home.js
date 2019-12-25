@@ -7,6 +7,7 @@ Page({
    */
   data: {
     theaterList:{},
+    newMovieList:{},
     page:0,
   },
 
@@ -14,9 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getTheater()
+    this.getTheater();
+    this.getNewMovie();
   },
 
+  // 获取正在上映的电影
   getTheater(){
     app.api.getRelease({ city: '深圳', start: this.page}).then(res=>{
       this.setData({
@@ -24,6 +27,49 @@ Page({
       })
     })
   },
+  getNewMovie(){
+    app.api.newMovie().then(res=>{
+      this.setData({
+        newMovieList:res.data
+      })
+    })
+  },
+
+  upper(e) {
+    // console.log(e)
+  },
+
+  lower(e) {
+    // console.log(e)
+  },
+
+  scroll(e) {
+    // console.log(e)
+  },
+
+  scrollToTop() {
+    this.setAction({
+      scrollTop: 0
+    })
+  },
+
+  // tap() {
+  //   for (let i = 0; i < order.length; ++i) {
+  //     if (order[i] === this.data.toView) {
+  //       this.setData({
+  //         toView: order[i + 1],
+  //         scrollTop: (i + 1) * 200
+  //       })
+  //       break
+  //     }
+  //   }
+  // },
+
+  // tapMove() {
+  //   this.setData({
+  //     scrollTop: this.data.scrollTop + 10
+  //   })
+  // }
 
   /**
    * 生命周期函数--监听页面初次渲染完成
