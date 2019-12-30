@@ -1,0 +1,16 @@
+<!--component/movieList.wxml-->
+<template name="movieItem">
+  <block wx:for="{{movieList}}" wx:key="id">
+  <navigator class="movie_list" url="/pages/detail/detail?id={{item.id}}">
+ 
+      <image src='{{item.images.medium}}'></image>
+      <view class="name">{{item.title}}</view>
+      <view class="date">上映时间：{{item.mainland_pubdate}}</view>
+      <view>
+        <text class="tips" wx:for="{{item.genres}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="score" wx:if="{{item.rating.average!=0}}">{{item.rating.average}}分  </view>
+      <view class="score" wx:else>暂无评分</view>
+    </navigator>
+  </block>
+</template>

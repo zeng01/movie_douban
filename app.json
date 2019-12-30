@@ -3,6 +3,7 @@
     "pages/home/home",
     "pages/coming/coming",
     "pages/my/my",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/logs/logs"
   ],

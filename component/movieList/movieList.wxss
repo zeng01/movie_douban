@@ -1,0 +1,50 @@
+/* component/movieList.wxss */
+.movie_list{
+  width:46%;
+  display:inline-block;
+  position: relative;
+  background: #fff;
+  margin: 0 0 10px 10px;
+  padding-bottom:5px; 
+}
+
+.movie_list image{
+  width: 100%;
+}
+
+.movie_list .top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie_list .name{
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding:2px 5px;
+}
+
+.movie_list .date{
+  font-size: 12px;
+  padding:2px 5px;
+}
+
+.movie_list .tips{
+  padding:0 2px;
+  border: 1px solid #999;
+  color: #999;
+  font-size: 12px;
+  margin: 4px 2px 4px 4px;
+}
+
+.movie_list .score{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #fff;
+  background: rgba(0,0,0,.5);
+  font-size: 12px;
+  padding: 2px;
+}

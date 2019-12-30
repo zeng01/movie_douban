@@ -1,5 +1,8 @@
 // pages/home/home.js
 const app = getApp();
+
+var pageSize=40;
+
 Page({
 
   /**
@@ -9,6 +12,9 @@ Page({
     theaterList:{},
     newMovieList:{},
     page:0,
+    comingTitle:'即将上映',
+    nowTitle:'',
+    isShow:true
   },
 
   /**
@@ -21,12 +27,26 @@ Page({
 
   // 获取正在上映的电影
   getTheater(){
-    app.api.getRelease({ city: '深圳', start: this.page}).then(res=>{
+    app.api.getRelease({ city: '深圳', start: this.data.page, count: pageSize}).then(res=>{
+      const data = res.data
       this.setData({
-        theaterList:res.data
+        theaterList: data,
+        isShow: true,
+        nowTitle:res.data.title
       })
     })
   },
+  // 获取即将上映
+  getComing(){
+    app.api.coming({start:this.data.page,count:pageSize}).then(res=>{
+      const data=res.data
+      this.setData({
+        theaterList: data,
+        isShow: false
+      })
+    })
+  },
+  // 获取新片榜
   getNewMovie(){
     app.api.newMovie().then(res=>{
       this.setData({
@@ -35,12 +55,28 @@ Page({
     })
   },
 
-  upper(e) {
-    // console.log(e)
+  // 上一页
+  upperPrev(e) {
+    // this.data.page--;
+    // if (this.data.page<=0){
+    //   this.data.page=0;
+    //   return;
+    // }
+    // this.getTheater()
   },
 
-  lower(e) {
-    // console.log(e)
+  // 下一页
+  lowerNext(e) {
+    // this.data.page++;
+    // if(this.data.page>this.data.p){
+    //   this.data.page = this.data.p
+    //   wx.showToast({
+    //     title: '到底了!!!',
+    //   })
+    //   return
+    // }else{
+    //   this.getTheater()
+    // }
   },
 
   scroll(e) {
@@ -52,24 +88,6 @@ Page({
       scrollTop: 0
     })
   },
-
-  // tap() {
-  //   for (let i = 0; i < order.length; ++i) {
-  //     if (order[i] === this.data.toView) {
-  //       this.setData({
-  //         toView: order[i + 1],
-  //         scrollTop: (i + 1) * 200
-  //       })
-  //       break
-  //     }
-  //   }
-  // },
-
-  // tapMove() {
-  //   this.setData({
-  //     scrollTop: this.data.scrollTop + 10
-  //   })
-  // }
 
   /**
    * 生命周期函数--监听页面初次渲染完成

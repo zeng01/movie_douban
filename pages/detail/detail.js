@@ -1,30 +1,22 @@
-// pages/coming/coming.js
+// pages/detail/detail.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShow: true
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getTheater()
-  },
-  // 获取正在上映的电影
-  getTheater() {
-    // this.setData({
-    //   isShow : true
-    // })
-  },
-  // 获取即将上映
-  getComing() {
-    // this.setData({
-    //   isShow: false
-    // })
+    let id=options.id
+    app.api.getMovie(id).then(res=>{
+      console.log(res)
+    })
   },
 
   /**

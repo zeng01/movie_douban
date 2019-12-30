@@ -1,2 +1,3 @@
 <!--pages/coming/coming.wxml-->
-<text>pages/coming/coming.wxml</text>
+<text class="{{isShow ? 'active' : ''}}" bindtap='getTheater'>正在上映</text>
+  <text class="{{!isShow ? 'active' : ''}}" bindtap='getComing'>即将上映</text>

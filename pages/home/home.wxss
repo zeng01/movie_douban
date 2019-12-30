@@ -1,7 +1,10 @@
 /* pages/home/home.wxss */
-
+@import "../../component/movieList/movieList.wxss";
 .theater_title{
-    padding: 10px 5px;
+    padding: 5px;
+    background: #fff;
+    margin:8px 0;
+    font-size:14px;
 }
 
 .scrollX{
@@ -10,54 +13,8 @@
   white-space: nowrap;
 }
 
-.theater_list{
-  width:46%;
-  display:inline-block;
-  position: relative;
-  background: #fff;
-  margin: 0 0 10px 10px;
-  padding-bottom:5px; 
-}
-
-
-
-.theater_list image{
-  width: 100%;
-}
-
-.theater_list .top{
-  display: flex;
-  justify-content: space-between;
-}
-
-.theater_list .name{
-  font-weight: 600;
-  font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding:2px 5px;
-}
-
-.theater_list .date{
-  font-size: 12px;
-  padding:2px 5px;
-}
-
-.theater_list .tips{
-  padding:0 2px;
-  border: 1px solid #999;
-  color: #999;
-  font-size: 12px;
-  margin: 4px 2px 4px 4px;
-}
-
-.theater_list .score{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  color: #fff;
-  background: rgba(0,0,0,.5);
-  font-size: 12px;
-  padding: 2px;
+.active{
+  font-size: 16px;
+  color: #337ab7;
+  padding:5px 10px;
 }

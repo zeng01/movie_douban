@@ -26,20 +26,6 @@ function request(url,data,method){
       header: getHeader(),
       success:(res=>{
         wx.hideLoading()
-        // 服务器 非200 错误
-        // if (res.statusCode && res.statusCode != 200) {
-        //   wx.showToast({ title: '服务器 ' + res.statusCode + ' 错误', icon: 'none' });
-        //   reject(res);
-        //   return;
-        // }
-
-        // if (res.data && res.data.code != 0) {
-        //   // 业务状态非0 是否提示
-        //   wx.showToast({ title: res.data.msg, icon: 'none' });
-        //   reject(res);
-        //   return;
-        // }
-
         if(res&&res.statusCode==200){
           resolve(res);
         }else{

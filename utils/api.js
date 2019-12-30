@@ -7,11 +7,14 @@ class api{
   };
   //获取电影详情
   getMovie(id){
-    return request('/v2/movie/subject/',id);
+    return request('/v2/movie/subject/'+id);
   };
   //获取最新电影
   newMovie(){
     return request('/v2/movie/new_movies');
+  };
+  coming(params){
+    return request('/v2/movie/coming_soon', params);
   }
 }
 
